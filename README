@@ -18,6 +18,21 @@ zip helloworld.zip helloworld/*
 brew装好google-cloud-sdk
 
 ```
-gcloud functions deploy HelloHTTP --runtime go111 --trigger-http --source helloworld
+gcloud functions deploy HelloHTTP --runtime go111 --trigge r-http --source helloworld --entrypoint HelloHTTP
 ```
+
+常用参数 
+--runtime go111或其他  
+--trigger-http  
+--source 指定本地文件夹  
+--entrypoint
+
+deploy 之后的是函数名， 必须指定，如果 helloworld/hello_http.go 里的方法名和函数名一直，可以省掉--entrypoint，自动推断出来
+
+其中,文件夹名和文件名可以随便命名，叫1，2 都可以，当然符合语义最好
+
+deploy之后的第一个参数，函数名区分大小写的， 这个切记
+
+Google cloud endpoints 对应的是 AWS API Gateway
+
 
